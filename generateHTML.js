@@ -3,7 +3,7 @@ const colors = {
       wrapperBackground: "#E6E1C3",
       headerBackground: "#C1C72C",
       headerColor: "black",
-      photoBorderColor: "#black"
+      photoBorderColor: "black"
     },
     blue: {
       wrapperBackground: "#5F64D3",
@@ -42,14 +42,14 @@ const colors = {
               font-weight: 100px;
           }
           #row1{
-              background-color: #DE9967;
+              background-color: ${colors[data].wrapperBackground};
               height: 500px;
               padding-top: 50px
   
           }
   
           #row3{
-              background-color: #DE9967;
+              background-color: ${colors[data].wrapperBackground};
               height: 400px;
               padding-top: 50px
   
@@ -71,8 +71,8 @@ const colors = {
               width: 60%;
               height: 470px;
               position: absolute;
-              background-color: #870603;
-              color: white;
+              background-color: ${colors[data].headerBackground};
+              color: ${colors[data].headerColor};
               margin-top: 100px;
               margin-left: 5%;
               text-align: center;
@@ -80,7 +80,7 @@ const colors = {
           img{
               margin-top: -50px;
               height: 250px;
-              border: 7px solid white;
+              border: 7px solid ${colors[data].photoBorderColor};
               margin-bottom: 20px;
           }
   
@@ -90,8 +90,8 @@ const colors = {
   
           .col-md-5{
               padding-top: 20px;
-              background-color: #870603;
-              color: white;
+              background-color: ${colors[data].headerBackground};
+              color: ${colors[data].headerColor};
               margin: 25px 20px;
               height: 120px;
               font-size: 30px;
