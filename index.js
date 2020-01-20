@@ -29,9 +29,14 @@ function init() {
     inquirer
     .prompt(questions)
     .then(function(answers) {
-      const queryUrl = `https://api.github.com/users/${answers.username}`;
+
+      var queryUrl = `https://api.github.com/users/${answers.username}`;
+      var queryUrlForStarCount=`https://api.github.com/users/${answers.username}/starred?per_page=100`;
+
+      axios.get(queryUrlForStarCount).then(function(res){
+      var starCount=res.data.length;
       axios.get(queryUrl).then(function(response) {
-         console.log(response);
+         //console.log(response);
 
          var location=response.data.location;
          var locationUrl="#";
@@ -55,10 +60,12 @@ function init() {
             followers: response.data.followers,
             githubStars: "",
             following: response.data.following,
+            stars: starCount
         }
         let html=page.generateHTML(userInfo,answers.backgroundColor);
         writeToFile("profile.html", html);
         });
+    });
   
     
        

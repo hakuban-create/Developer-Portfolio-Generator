@@ -138,8 +138,8 @@ const colors = {
                </div>  
                <div class="row">
                       <div class="col-md-5 rounded shadow-md">
-                      <div>GitHub Stars</div>
-                      <div>WIP</div>
+                      <div>Github Stars</div>
+                      <div>${userInfo.stars}</div>
                       </div>
                       <div class="col-md-5 rounded shadow-md">
                       <div>Following</div>
