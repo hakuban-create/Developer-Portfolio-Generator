@@ -3,6 +3,7 @@ const fs=require("fs");
 const axios=require("axios");
 const inquirer=require("inquirer");
 const page=require("./generateHTML");
+const pdfConvert=require("./HTMLtoPDF");
 
 
 const questions = [
@@ -10,20 +11,10 @@ const questions = [
     message: "Enter your GitHub username",
     name: "username"},
     {
-    message: "What color would you like for your portfolio background? Choices: green, blue, pink, red",
+    message: "Type your choice of profile background color: green, blue, pink, red",
     name: "backgroundColor"}
 ];
 
-
-function writeToFile(fileName, data) {
- fs.writeFile(fileName, data, function(err){
-    if(err){
-        console.log(err);
-    }else{
-        console.log(`File has been successfully created.`)
-    }
- })
-}
 
 function init() {
     inquirer
@@ -36,7 +27,6 @@ function init() {
       axios.get(queryUrlForStarCount).then(function(res){
       var starCount=res.data.length;
       axios.get(queryUrl).then(function(response) {
-         //console.log(response);
 
          var location=response.data.location;
          var locationUrl="#";
@@ -44,7 +34,6 @@ function init() {
             var city=location.substring(0,location.indexOf(","));
             var state=location.substring(location.indexOf(" ")+1);
             locationUrl=`https://www.google.com/maps/place/${city},%20${state}`;
-            console.log("url: "+locationUrl);
         }
 
          const userInfo={
@@ -63,16 +52,35 @@ function init() {
             stars: starCount
         }
         let html=page.generateHTML(userInfo,answers.backgroundColor);
-        writeToFile("profile.html", html);
+
+
+        /* Creating HTML file: htmlProfile.html */
+        writeToFile("htmlProfile.html", html);
+
+
+        /* Creating PDF file: Profile.pdf */
+         setTimeout(function(){
+             console.log("Converting html to pdf...");
+            pdfConvert.convertToPDF();
+         },1000);
+
+
         });
-    });
-  
-    
-       
+    });   
     });
   
 }
 
-init();
+    /* HTMl file writer function */
+    function writeToFile(fileName, data) {
+        fs.writeFile(fileName, data, function(err){
+           if(err){
+               console.log(err);
+           }else{
+               console.log(`HTML file has been successfully created.`)
+           }
+        })
+       }   
+       
 
-
+       init();

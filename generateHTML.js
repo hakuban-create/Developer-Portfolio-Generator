@@ -43,62 +43,69 @@ const colors = {
           }
           #row1{
               background-color: ${colors[data].wrapperBackground};
-              height: 500px;
+              height: 340px;
               padding-top: 50px
   
           }
   
           #row3{
               background-color: ${colors[data].wrapperBackground};
-              height: 400px;
+              height: 130px;
               padding-top: 50px
   
           }
   
           #row2{
           background-color: #eae8e8;
-          height: 650px;
-          padding-top: 150px;
-          text-align: center;
+          height: 310px;
+          padding-top: 50px;
           }
           #hobby{
-              margin: 30px 0px;
-              text-shadow: 2px 2px white;
-          font-weight: bold;
+            text-shadow: 2px 2px white;
+            font-weight: bold;
+            margin-left: 140px !important;
+            
           }
   
           #row1_inner{
-              width: 60%;
-              height: 470px;
-              position: absolute;
+            width: 90%;
+            height: 275px;
+            position: absolute;
               background-color: ${colors[data].headerBackground};
               color: ${colors[data].headerColor};
-              margin-top: 100px;
-              margin-left: 5%;
+              margin-top: 40px;
+              margin-left: 4%;
               text-align: center;
+              line-height: 2;
           }
           img{
               margin-top: -50px;
-              height: 250px;
+              height: 150px;
               border: 7px solid ${colors[data].photoBorderColor};
               margin-bottom: 20px;
           }
   
           #row1_inner > *{
-              margin-bottom: 20px;
+              margin-bottom: 9px;
           }
   
-          .col-md-5{
-              padding-top: 20px;
+          .col-md-3{
+            margin-left: 30px !important;
+            float:left;
+            width: 250px;
+            padding-top: 15px;
               background-color: ${colors[data].headerBackground};
               color: ${colors[data].headerColor};
-              margin: 25px 20px;
-              height: 120px;
-              font-size: 30px;
+              margin: 15px 0px;
+              height: 70px;
+              font-size: 15px;
+              text-align: center;
           }
   
           #tab_container{
-              margin-left: 11%;
+            margin-top: 10px;
+            margin-left: 18px;
+            width: 60%;
           }
 
           a{
@@ -111,9 +118,9 @@ const colors = {
           <div id="row1" class="rounded">
               <div id="row1_inner" class="rounded shadow-lg">
                   <img class="rounded-circle shadow-lg" id="profile_pic" src="${userInfo.avatarUrl}">
-                  <h1>Hi!</h1>
-                  <h1>My name is ${userInfo.name}!</h1>
-                  <h4>Currently @ ${userInfo.company}</h4>
+                  <h5>Hi!</h5>
+                  <h5>My name is ${userInfo.name}!</h5>
+                  <div>Currently @ ${userInfo.company}</div>
                   <i class="fas fa-map-marker-alt"></i>
                   <a id="location" href="${userInfo.locationUrl}">${userInfo.location}</a>
                   <i class="fab fa-github-square"></i>
@@ -124,27 +131,27 @@ const colors = {
           </div>
   
           <div id="row2">
-              <h2 id="hobby">${userInfo.bio}</h2>
+              <h5 id="hobby">${userInfo.bio}</h5>
               <div id="tab_container">
                <div class="row">
-                      <div class="col-md-5 rounded shadow-md">
+                      <div class="col-md-3 rounded shadow-md">
                       <div>Public Repositories</div>
                       <div>${userInfo.repoCount}</div>
                       </div>
-                      <div class="col-md-5 rounded shadow-md">
+                      <div class="col-md-3 rounded shadow-md">
                       <div>Followers</div>
                       <div>${userInfo.followers}</div>
                       </div>
                </div>  
                <div class="row">
-                      <div class="col-md-5 rounded shadow-md">
+                      <span class="col-md-3 rounded shadow-md">
                       <div>Github Stars</div>
                       <div>${userInfo.stars}</div>
-                      </div>
-                      <div class="col-md-5 rounded shadow-md">
+                      </span>
+                      <span class="col-md-3 rounded shadow-md">
                       <div>Following</div>
                       <div>${userInfo.following}</div>
-                      </div>
+                      </span>
                </div>  
               </div>
           </div>
