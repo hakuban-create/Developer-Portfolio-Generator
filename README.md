@@ -20,4 +20,7 @@ The user will be prompted for a favorite color, which will be used as the backgr
  ```
  node index.js
  ```
+It prompts the user to enter the github username 
+Then asks the user to choose the background color from red, blue, pink or green
+And then the application will generate Profile.pdf file in the same code directory. 
 
