@@ -63,7 +63,7 @@ const colors = {
           #hobby{
             text-shadow: 2px 2px white;
             font-weight: bold;
-            margin-left: 140px !important;
+            margin-left: 80px !important;
             
           }
   
